@@ -6,11 +6,6 @@
 # Set by qhy040404
 data_to_analyze/
 
-# Temp set
-.github/workflows/main.yml
-.github/workflows/publish.yml
-README_B.md
-
 # User-specific files
 *.rsuser
 *.suo
