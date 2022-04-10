@@ -34,37 +34,37 @@ def constructParaPlaceField(id):
     }
     return '{' + ','.join([i+':'+j for i, j in al.items()]) + '}'
 
-def orderChildListTemp(id, length, money, num, price, status, step, time, place_no, place, fieldName, x, y):
+def orderChildListTemp(id, price, time, place_no, place, fieldName, x, y):
     al = {
         '"fieldSaleId"': '"' + id + '"',
-        '"length"': str(length),
-        '"money"': '"' + str(money) + '"',
-        '"num"': str(num),
+        '"length"': '60',
+        '"money"': '"' + str(int(price)) + '"',
+        '"num"': '1',
         '"price"': str(price),
-        '"status"': str(status),
-        '"step"': str(step),
-        '"time"': time,
+        '"status"': '0',
+        '"step"': '30',
+        '"time"': '"' + time + '"',
         '"place_no"': place_no,
         '"place"': place,
         '"date"': '"' + str(datetime.date.today()) + '"',
         '"fieldName"': fieldName,
-        '"x"': x,
-        '"y"': y
+        '"x"': x, #场地排列
+        '"y"': y  #时间排列
     }
     return '[{' + ','.join([i+':'+j for i, j in al.items()]) + '}]'
 
-def constructParaReserve(id, length, money, num, price, status, step, time, place_no, place, fieldName, x, y, sign):
+def constructParaReserve(id, price, time, place_no, place, fieldName, x, y, sign):
     al = {
         '"fieldName"': fieldName,
         '"goodsParentType"': '"field定"',
         '"insurance"': '0',
-        '"offMainSumPrice"': '"' + str(money) + '"',
+        '"offMainSumPrice"': '"' + str(int(price)) + '"',
         '"operator_role"': '"admin"',
         '"orderBackPrice"': '0',
-        '"orderChildListTemp"': orderChildListTemp(id, length, money, num, price, status, step, time, place_no, place, fieldName, x, y),
+        '"orderChildListTemp"': orderChildListTemp(id, price, time, place_no, place, fieldName, x, y),
         '"orderMainId"': '""',
-        '"orderMainSumHaspay"': '"' + str(money) + '"',
-        '"orderMainSumPrice"': '"' + str(money) + '"',
+        '"orderMainSumHaspay"': '"' + str(int(price)) + '"',
+        '"orderMainSumPrice"': '"' + str(int(price)) + '"',
         '"orderMains"': '[]',
         '"orderReturnSourceObj"': '{}',
         '"orderServiceChildList"': '[]',
@@ -73,8 +73,22 @@ def constructParaReserve(id, length, money, num, price, status, step, time, plac
         '"payType"': '"SMARTCARDPOS-ONLINE"',
         '"platform"': '"PCWEB"',
         '"printStatus"': '1',
-        '"sign"': '"' + str(sign) + '"',
+        '"sign"': '"' + sign + '"',
         '"today"': '"' + str(datetime.date.today()) + '"',
         '"flreeCountFlag"': 'false'
+    }
+    return '{' + ','.join([i+':'+j for i, j in al.items()]) + '}'
+
+def constructParaSign():
+    al = {
+        '"operator_role"': '"admin"',
+        '"orgId"': '"c4f67f3177d111e986f98cec4bb1848c"'
+    }
+    return '{' + ','.join([i+':'+j for i, j in al.items()]) + '}'
+
+def constructParaPay(payid):
+    al = {
+        '"orderMainId"': payid,
+        '"orgId"': '"c4f67f3177d111e986f98cec4bb1848c"'
     }
     return '{' + ','.join([i+':'+j for i, j in al.items()]) + '}'
