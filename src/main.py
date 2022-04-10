@@ -20,7 +20,7 @@ with open("config.conf","r") as config:
     configData.pop(0)
 
 # user_id, passwd, area_name, place, time, mail_user = None, mail_pass = None
-while len(userData) != 0:
+while len(configData) != 0:
     mail_user = None
     mail_pass = None
 
@@ -41,7 +41,8 @@ while len(userData) != 0:
 
     user = reserve.Reserve(user_id, passwd, area_name, place, time, mail_user, mail_pass)
     result = user.reserve()
-    if result is True:
-        print('Success.')
-    else:
-        print('Error.')
+
+if result is True:
+    print('Success.')
+else:
+    print('Error.')
