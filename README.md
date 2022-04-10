@@ -1,6 +1,6 @@
 # 大连理工大学体育馆自动预约小程序
 
-[![Build status (GitHub)](https://img.shields.io/github/workflow/status/qhy040404/DLUT-gym-auto-reservation/Compile-CI/master?label=Compile&logo=github&cacheSeconds=600)](https://github.com/qhy040404/DLUT-gym-auto-reservation/actions)
+[![Build status (GitHub)](https://img.shields.io/github/workflow/status/qhy040404/DLUT-gym-auto-reservation/Compile-and-Test-CI/master?label=Compile&logo=github&cacheSeconds=600)](https://github.com/qhy040404/DLUT-gym-auto-reservation/actions)
 [![CodeFactor](https://www.codefactor.io/repository/github/qhy040404/dlut-gym-auto-reservation/badge)](https://www.codefactor.io/repository/github/qhy040404/dlut-gym-auto-reservation)
 [![Github last commit date](https://img.shields.io/github/last-commit/qhy040404/DLUT-gym-auto-reservation.svg?label=Updated&logo=github&cacheSeconds=600)](https://github.com/qhy040404/DLUT-gym-auto-reservation/commits)
 [![License](https://img.shields.io/github/license/qhy040404/DLUT-gym-auto-reservation.svg?label=License&logo=github&cacheSeconds=2592000)](https://github.com/qhy040404/DLUT-gym-auto-reservation/blob/master/LICENSE)
