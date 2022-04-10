@@ -34,3 +34,4 @@
 ## 链接
 - [BeautyYuYanli/DLUT-login](https://github.com/BeautyYuYanli/DLUT-login)
 - [配置生成器](https://github.com/qhy040404/Library-gym-configGenerator)
+- [图书馆预约](https://github.com/qhy040404/DLUT-library-auto-reservation)
