@@ -14,13 +14,12 @@
 
 ![GitHub top language](https://img.shields.io/github/languages/top/qhy040404/DLUT-gym-auto-reservation)
 
-## 闲聊
-现在想约一个篮球馆属于是难上加难了，不整点东西谁抢得到啊
-
 ## 特性
 - 需要自行部署
 - 可通过邮件推送预约结果，以及预约失败原因
 - 支持多人（自行添加userdata2）
+  - 例如```user_id2```
+  - 最后加上```user = reserve.Reserve(user_id2, passwd2, area_name2, place2, time2, mail_user2, mail_pass2)```
 
 ## 依赖项
 - [Python](https://www.python.org/downloads/) 
