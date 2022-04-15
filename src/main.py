@@ -1,46 +1,32 @@
 # import
 import reserve
-import platform
-import os
-import sys
 
-with open("config.conf","r") as config:
-    configData = config.readlines()
-    if len(configData) == 1:
-        print('没有数据，正在启动配置生成器')
-        if platform.system() == 'Windows':
-            os.system('timeout 1 >nul && start ConfigGenerator.exe')
-            sys.exit()
-        elif platform.system() == 'Linux' or platform.system() == 'Darwin':
-            os.system('sleep 1 && ./ConfigGenerator')
-            sys.exit()
-        else:
-            print('System Unknown.')
-            sys.exit()
-    configData.pop(0)
+# userdata
+user_id = '' # 学号
+passwd = '' # 密码
+area_name = '' # 运动场馆名
+place = '' # 几号场
+time = '' # 时间段
+mail_user = '' # 不需要请删除单引号，并输入None
+mail_pass = '' # 不需要请删除单引号，并输入None
 
-# user_id, passwd, area_name, place, time, mail_user = None, mail_pass = None
-while len(configData) != 0:
-    mail_user = None
-    mail_pass = None
+# userdata_example
+# 以下为userdata段示例
+'''
+user_id = '20211234567'
+passwd = '123456'
+area_name = '乒乓'
+place = '1号场'
+time = '13:00-13:30'
+mail_user = None
+mail_pass = None
+'''
 
-    userData = configData.pop(0).strip('\n').split()
-    user_id = userData[0]
-    passwd = userData[1]
-    area_name = userData[2]
-    place = userData[3]
-    time = userData[4]
-    if len(userData) == 5:
-        pass
-    elif len(userData) == 7:
-        mail_user = userData[5]
-        mail_pass = userData[6]
-    else:
-        print('Invalid Config.')
-        sys.exit()
+# 可以选择的场馆请在reserve.py中查看
 
-    user = reserve.Reserve(user_id, passwd, area_name, place, time, mail_user, mail_pass)
-    result = user.reserve()
+# main
+user = reserve.Reserve(user_id, passwd, area_name, place, time, mail_user, mail_pass)
+result = user.reserve()
 
 if result is True:
     print('Success.')

@@ -1,5 +1,12 @@
 # 大连理工大学体育馆自动预约小程序
 
+# Archived / 归档
+> 以后随缘更新，这个作用不大
+>
+> 最多以后把现在关掉预约通道的三个馆加上就不再更新了
+>
+> 对我来说确实用不到
+
 [![Build status (GitHub)](https://img.shields.io/github/workflow/status/qhy040404/DLUT-gym-auto-reservation/Compile-and-Test-CI/master?label=Compile&logo=github&cacheSeconds=600)](https://github.com/qhy040404/DLUT-gym-auto-reservation/actions)
 [![CodeFactor](https://www.codefactor.io/repository/github/qhy040404/dlut-gym-auto-reservation/badge)](https://www.codefactor.io/repository/github/qhy040404/dlut-gym-auto-reservation)
 [![Github last commit date](https://img.shields.io/github/last-commit/qhy040404/DLUT-gym-auto-reservation.svg?label=Updated&logo=github&cacheSeconds=600)](https://github.com/qhy040404/DLUT-gym-auto-reservation/commits)
@@ -10,28 +17,21 @@
 ## 闲聊
 现在想约一个篮球馆属于是难上加难了，不整点东西谁抢得到啊
 
-（今天没给篮球馆的预约窗口，人傻了）
-
 ## 特性
-- 目前需要自行部署，可能会加入服务器版本
+- 需要自行部署
 - 可通过邮件推送预约结果，以及预约失败原因
-- 支持多人
+- 支持多人（自行添加userdata2）
 
 ## 依赖项
 - [Python](https://www.python.org/downloads/) 
-- requests （推荐使用[pip](https://pip.pypa.io/en/stable/installation/)）
+- requests
   - ```pip install -U requests``` (For Linux)
   - ```py -m pip install -U requests``` (For Windows)
-- 不下依赖包用个der啊
 
 ## 使用
-- 直接运行源程序
-  - 运行配置生成器来生成配置文件
-  - 配置生成器可以到[这里](https://github.com/qhy040404/Library-gym-configGenerator/releases)下载独立文件，拷贝至```.py```源文件目录运行
-- 运行打包后的程序
-  - 在[Releases](https://github.com/qhy040404/DLUT-gym-auto-reservation/releases)中下载最新版安装使用即可
+- 在```main.py```中修改用户数据
+- 运行```py main.py```
 
 ## 链接
 - [BeautyYuYanli/DLUT-login](https://github.com/BeautyYuYanli/DLUT-login)
-- [配置生成器](https://github.com/qhy040404/Library-gym-configGenerator)
 - [图书馆预约](https://github.com/qhy040404/DLUT-library-auto-reservation)

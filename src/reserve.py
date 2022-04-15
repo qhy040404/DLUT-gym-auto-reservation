@@ -11,7 +11,7 @@ class Reserve(object):
         self.user_id = user_id
         self.passwd = passwd
         self.area_name = area_name
-        self.area_map = {'篮球': '"icon":"#icon-lanqiu",', '武术散打': '"icon":"#icon-wushu",',\
+        self.area_map = {'武术散打': '"icon":"#icon-wushu",',\
                          '舞蹈': '"icon":"#icon-wudao",', '乒乓': '"icon":"#icon-pingpangqiuyundongmianxing",',\
                          '健美操': '"icon":"#icon-jianmeicao",', '台球': '"icon":"#icon-taiqiu",'
                         }
@@ -27,7 +27,7 @@ class Reserve(object):
                           '13号场': '12', '14号场': '13', '15号场': '14', '16号场': '15', '17号场': '16', '18号场': '17',\
                           '19号场': '18', '20号场': '19', '21号场': '20', '22号场': '21', '23号场': '22', '24号场': '23',\
                           '25号场': '24', '26号场': '25', '27号场': '26', '28号场': '27', '29号场': '28', '30号场': '29', 
-                         } #篮球馆好像不一样，待补充
+                         }
         self.x = self.place_map.get(self.place)
         self.place = '"' + self.place + '"'
         self.time = time
@@ -40,7 +40,7 @@ class Reserve(object):
         self.y = str(self.time_map.get(self.time))
         self.mail_user = mail_user
         self.mail_pass = mail_pass
-        self.field_map = {'篮球': '"篮球馆(学生)"', '武术散打': '"武术散打馆(学生)"',\
+        self.field_map = {'武术散打': '"武术散打馆(学生)"',\
                           '舞蹈': '"舞蹈馆(学生)"', '乒乓': '"乒乓球(学生)"',\
                           '健美操': '"健美操馆(学生)"', '台球': '"台球(学生)"'
                          }
