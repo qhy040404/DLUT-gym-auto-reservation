@@ -20,11 +20,3 @@ jobs:
         with:
           language: python
           source: main
-
-      - name: test
-        shell: sh
-        run: |
-          cd src
-          cp "config.conf" "dist/"
-          cd dist
-          ./main

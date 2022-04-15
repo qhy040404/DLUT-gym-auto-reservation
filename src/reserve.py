@@ -80,13 +80,14 @@ class Reserve(object):
 
     def reserve(self):
         # define const url
-        areas_url = 'https://tycg.dlut.edu.cn/diantuo/fieldSale/listApiFieldSaleNew1.do'
-        place_url = 'https://tycg.dlut.edu.cn/diantuo/fieldSale/listFieldSale.do'
-        sign_url = 'https://tycg.dlut.edu.cn/diantuo/createSign.do'
-        addOrder_url = 'https://tycg.dlut.edu.cn/diantuo/addOrder.do?sign='
-        pay_url = 'https://tycg.dlut.edu.cn/diantuo/pay/yuLanOnLinePay.do'
+        areas_url = 'https://webvpn.dlut.edu.cn/https/77726476706e69737468656265737421e4ee429b693464456a468ca88d1b203b/diantuo/fieldSale/listApiFieldSaleNew1.do'
+        place_url = 'https://webvpn.dlut.edu.cn/https/77726476706e69737468656265737421e4ee429b693464456a468ca88d1b203b/diantuo/fieldSale/listFieldSale.do'
+        sign_url = 'https://webvpn.dlut.edu.cn/https/77726476706e69737468656265737421e4ee429b693464456a468ca88d1b203b/diantuo/createSign.do'
+        addOrder_url = 'https://webvpn.dlut.edu.cn/https/77726476706e69737468656265737421e4ee429b693464456a468ca88d1b203b/diantuo/addOrder.do?sign='
+        pay_url = 'https://webvpn.dlut.edu.cn/https/77726476706e69737468656265737421e4ee429b693464456a468ca88d1b203b/diantuo/pay/yuLanOnLinePay.do'
 
         s = sso.login(self.user_id, self.passwd)
+        s.get('https://webvpn.dlut.edu.cn/https/77726476706e69737468656265737421e4ee429b693464456a468ca88d1b203b/diantuo/pcLogin.do')
         fieldSaleId = s.post(areas_url, postdata.constructParaField(), headers={'Accept': 'application/json, text/javascript, */*; q=0.01',
                                                                                 'Content-Type': 'application/json'}).text
         fieldSaleId = ProcessData.get_fieldSaleId(fieldSaleId, self.area)
