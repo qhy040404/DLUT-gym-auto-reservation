@@ -24,24 +24,6 @@ jobs:
       with:
         submodules: recursive
 
-#    - name: Add MSBuild to PATH
-#      if: startsWith(matrix.os, 'windows-')
-#      uses: microsoft/setup-msbuild@v1.0.3
-#
-#    - name: Verify MSBuild
-#      if: startsWith(matrix.os, 'windows-')
-#      run: msbuild -version
-#
-    - name: Verify g++ on Linux
-      if: startsWith(matrix.os, 'ubuntu-')
-      shell: sh
-      run: g++ --version
-
-    - name: Verify g++ on macOS
-      if: startsWith(matrix.os, 'macos-')
-      shell: sh
-      run: g++-9 --version
-
     - name: Verify Python and pip packages (win&linux)
       if: startsWith(matrix.os, 'windows-') || startsWith(matrix.os, 'ubuntu-')
       run: |
@@ -56,44 +38,6 @@ jobs:
         python3 -m pip install requests
         python3 -m pip install pyinstaller
 
-#    - name: Restore NuGet Packages
-#      if: startsWith(matrix.os, 'windows-')
-#      shell: pwsh
-#      run: |
-#        Set-StrictMode -Version Latest
-#
-#        cd ConfigGenerator
-#        nuget restore
-#
-#    - name: Publish ConfigGenerator on Linux
-#      if: startsWith(matrix.os, 'ubuntu-')
-#      shell: sh
-#      run: |
-#        cd ConfigGenerator
-#        g++ -o ConfigGenerator Unix-version/src/source.cpp
-#        mkdir out
-#        cp "ConfigGenerator" "out/"
-#
-#    - name: Publish ConfigGenerator on macOS
-#      if: startsWith(matrix.os, 'macos-')
-#      shell: sh
-#      run: |
-#        cd ConfigGenerator
-#        g++-9 -o ConfigGenerator Unix-version/src/source.cpp
-#        mkdir out
-#        cp "ConfigGenerator" "out/"
-#
-#    - name: Publish ConfigGenerator on Windows
-#      if: startsWith(matrix.os, 'windows-')
-#      shell: pwsh
-#      run: |
-#        Set-StrictMode -Version Latest
-#        $ErrorActionPreference = 'Stop'
-#        $ProgressPreference = 'SilentlyContinue'
-#
-#        cd ConfigGenerator
-#        msbuild -t:Build -p:Configuration=Release -p:OutDir="out\" -nologo
-#
     - name: Publish main on Unix
       if: startsWith(matrix.os, 'macos-') || startsWith(matrix.os, 'ubuntu-')
       shell: sh
@@ -111,9 +55,6 @@ jobs:
       if: startsWith(matrix.os, 'ubuntu-')
       shell: sh
       run: |
-        cp "src/config.conf" "out/"
-        #cp "ConfigGenerator/out/ConfigGenerator" "out/"
-
         # By default use fastest compression
         seven_zip_args="-mx=1"
         zip_args="-1"
@@ -160,9 +101,6 @@ jobs:
       if: startsWith(matrix.os, 'macos-')
       shell: sh
       run: |
-        cp "src/config.conf" "out/"
-        #cp "ConfigGenerator/out/ConfigGenerator" "out/"
-
         # By default use fastest compression
         seven_zip_args="-mx=1"
         zip_args="-1"
@@ -209,8 +147,6 @@ jobs:
       if: startsWith(matrix.os, 'windows-')
       shell: pwsh
       run: |
-        Copy-Item "src\config.conf" "out"
-        #Copy-Item "ConfigGenerator\out\*" "out"
         # By default use fastest compression
         $compressionArgs = '-mx=1'
 
@@ -225,7 +161,6 @@ jobs:
         if ($LastExitCode -ne 0) {
             throw "Last command failed."
         }
-
 
     - name: Upload Library-linux
       if: startsWith(matrix.os, 'ubuntu-')
