@@ -21,7 +21,7 @@
   - 例如```user_id2```
   - 最后加上
   - ```user = reserve.Reserve(user_id2, passwd2, area_name2, place2, time2, mail_user2, mail_pass2)```
-  - ```result2 = user2.reserve()
+  - ```result2 = user2.reserve()```
 
 ## 依赖项
 - [Python](https://www.python.org/downloads/) 
