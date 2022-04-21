@@ -8,7 +8,7 @@ area_name = '' # 运动场馆名
 place = '' # 几号场
 time = '' # 时间段
 mail_user = '' # 不需要请删除单引号，并输入None
-mail_pass = '' # 不需要请删除单引号，并输入None
+mail_pass = '' # 输入邮箱授权码，不需要请删除单引号，并输入None
 
 # userdata_example
 # 以下为userdata段示例
