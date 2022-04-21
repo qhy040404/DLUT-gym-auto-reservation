@@ -4,8 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>1c6d532b-65af-423e-8c73-1110bda2795a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>
-    </StartupFile>
+    <StartupFile>src\main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -23,21 +22,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="src\" />
-    <Folder Include="src\sso\" />
+    <Folder Include="src\reserve\" />
+    <Folder Include="src\reserve\sso\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\main.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\postdata.py">
+    <Compile Include="src\reserve\postdata.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\ProcessData.py">
+    <Compile Include="src\reserve\ProcessData.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\reserve.py" />
-    <Compile Include="src\sso\des.py" />
-    <Compile Include="src\sso\__init__.py" />
+    <Compile Include="src\reserve\__init__.py" />
+    <Compile Include="src\reserve\sso\des.py" />
+    <Compile Include="src\reserve\sso\__init__.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />

@@ -1,9 +1,9 @@
 # import
-import sso
+from . import sso
 import smtplib
 from email.mime.text import MIMEText
-import postdata
-import ProcessData
+from . import postdata
+from . import ProcessData
 import sys
 
 class Reserve(object):
@@ -98,7 +98,7 @@ class Reserve(object):
         place_detail_status = (':').join(place_detail_status).split(':')
         place_count = place_detail_status.count('"place_no"')
         place_no = None
-        if place_count is 1:
+        if place_count == 1:
             place_no = place_detail_status[place_detail_status.index('"place_no"') + 1]
             place_val = place_detail_status[place_detail_status.index('"place"') + 1]
             if place_val == self.place:
