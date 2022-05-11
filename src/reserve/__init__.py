@@ -1,10 +1,12 @@
 # import
-from . import sso
 import smtplib
-from email.mime.text import MIMEText
-from . import postdata
-from . import ProcessData
 import sys
+from email.mime.text import MIMEText
+
+from . import ProcessData
+from . import postdata
+from . import sso
+
 
 class Reserve(object):
     def __init__(self, user_id, passwd, area_name, place, time, mail_user = None, mail_pass = None):
