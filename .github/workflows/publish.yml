@@ -1,6 +1,6 @@
 name: Publish
 
-on: [push, pull_request]
+on: [ push, pull_request ]
 
 env:
   CONFIGURATION: Release
@@ -14,39 +14,39 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [ macos-latest, ubuntu-latest, windows-latest ]
 
     runs-on: ${{ matrix.os }}
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3.0.2
-      with:
-        submodules: recursive
+      - name: Checkout code
+        uses: actions/checkout@v3.0.2
+        with:
+          submodules: recursive
 
-    - name: Verify Python and pip packages (win&linux)
-      if: startsWith(matrix.os, 'windows-') || startsWith(matrix.os, 'ubuntu-')
-      run: |
-        python --version
-        pip install requests
-        pip install pyinstaller
+      - name: Verify Python and pip packages (win&linux)
+        if: startsWith(matrix.os, 'windows-') || startsWith(matrix.os, 'ubuntu-')
+        run: |
+          python --version
+          pip install requests
+          pip install pyinstaller
 
-    - name: Verify Python and pip packages (mac)
-      if: startsWith(matrix.os, 'macos-')
-      run: |
-        python3 --version
-        python3 -m pip install requests
-        python3 -m pip install pyinstaller
+      - name: Verify Python and pip packages (mac)
+        if: startsWith(matrix.os, 'macos-')
+        run: |
+          python3 --version
+          python3 -m pip install requests
+          python3 -m pip install pyinstaller
 
-    - name: Publish main on Unix
-      if: startsWith(matrix.os, 'macos-') || startsWith(matrix.os, 'ubuntu-')
-      shell: sh
-      run: |
-        pyinstaller -F src/main.py --distpath=out/
+      - name: Publish main on Unix
+        if: startsWith(matrix.os, 'macos-') || startsWith(matrix.os, 'ubuntu-')
+        shell: sh
+        run: |
+          pyinstaller -F src/main.py --distpath=out/
 
-    - name: Publish main on Windows
-      if: startsWith(matrix.os, 'windows-')
-      run: |
-        Set-StrictMode -Version Latest
-        New-Item -Name out -type "directory"
-        pyinstaller -i src/logo.ico -F --version-file src/version src/main.py --distpath=out/
+      - name: Publish main on Windows
+        if: startsWith(matrix.os, 'windows-')
+        run: |
+          Set-StrictMode -Version Latest
+          New-Item -Name out -type "directory"
+          pyinstaller -i src/logo.ico -F --version-file src/version src/main.py --distpath=out/
