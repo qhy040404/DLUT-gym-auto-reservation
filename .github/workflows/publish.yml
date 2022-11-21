@@ -42,7 +42,7 @@ jobs:
         if: startsWith(matrix.os, 'macos-') || startsWith(matrix.os, 'ubuntu-')
         shell: sh
         run: |
-          python3 -m pyinstaller -F src/main.py --distpath=out/
+          pyinstaller -F src/main.py --distpath=out/
 
       - name: Publish main on Windows
         if: startsWith(matrix.os, 'windows-')
